@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang Đăng Nhập</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f1f1f1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            transition: background-color 0.3s ease;
+        }
+        .container {
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        .container:hover {
+            transform: scale(1.05);
+        }
+        h2 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        input[type="text"],
+        input[type="password"],
+        input[type="submit"] {
+            width: 100%;
+            padding: 15px;
+            margin-top: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+        .toggle-theme {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            cursor: pointer;
+            width: 60px;
+            height: 30px;
+            border-radius: 15px;
+            background-color: #ccc;
+            display: flex;
+            align-items: center;
+            padding-left: 5px;
+            transition: background-color 0.3s ease;
+        }
+        .toggle-theme:hover {
+            background-color: #aaa;
+        }
+        .toggle-slider {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: #fff;
+            margin-left: 5px;
+            transition: transform 0.3s ease;
+        }
+        .dark-theme {
+            background-color: #202020;
+            color: #fff;
+        }
+        .dark-theme .container {
+            background-color: #333;
+            color: #fff;
+        }
+        .dark-theme input[type="text"],
+        .dark-theme input[type="password"]
+        {
+            border: 1px solid #888;
+            background-color: #4f5959;
+            color: #fff;
+        }
+        .dark-theme input[type="submit"]{
+            background-color: #0f95ce;
+        }
+        .dark-theme .toggle-theme {
+            background-color: #666;
+        }
+        .dark-theme .toggle-theme .toggle-slider {
+            transform: translateX(30px);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Đăng Nhập</h2>
+        <form action="login.php" method="post">
+            <label for="username">Tên người dùng:</label>
+            <input type="text" id="username" name="username" required>
+
+            <label for="password">Mật khẩu:</label>
+            <input type="password" id="password" name="password" required>
+
+            <input type="submit" value="Đăng Nhập">
+        </form>
+    </div>
+
+    <div class="toggle-theme" onclick="toggleTheme()">
+        <div class="toggle-slider"></div>
+    </div>
+
+    <script>
+        function toggleTheme() {
+            const body = document.querySelector('body');
+            body.classList.toggle('dark-theme');
+        }
+    </script>
+</body>
+</html>
